@@ -33,13 +33,16 @@ class ExternalCredentialsController < ApplicationController
   end
 
   def link_account
-    provider = params[:provider].downcase
+    provider     = params[:provider].downcase
+    notification = [true, 'true'].include?(params[:notification])
+    ensure_notification_setup_allowed! if notification
+
     attributes = ExternalCredential.request_account_to_link(provider, params)
     session[:request_token] = attributes[:request_token]
     session[:code_verifier] = attributes[:code_verifier]
     session[:channel_id] = params[:channel_id]
     session[:shared_mailbox] = params[:shared_mailbox]
-    session[:notification] = [true, 'true'].include?(params[:notification])
+    session[:notification] = notification
     request.session_options.delete(:skip)
     redirect_to attributes[:authorize_url], allow_other_host: true
   end
@@ -65,26 +68,63 @@ class ExternalCredentialsController < ApplicationController
 
   private
 
-  def handle_notification_callback
-    request_token  = session[:request_token]
-    shared_mailbox = session[:shared_mailbox]
+  # System notifications of hosted instances are sent by the hosting provider.
+  def ensure_notification_setup_allowed!
+    raise Exceptions::Forbidden if Setting.get('system_online_service')
+  end
 
-    raise Exceptions::UnprocessableContent, __('Invalid OAuth state parameter.') if params[:state] != request_token
+  def handle_notification_callback
+    ensure_notification_setup_allowed!
+
+    # Return to the admin interface if admin consent is in process and the user clicks on "Back to app".
+    return redirect_to(notification_error_url('AADSTS65004'), allow_other_host: true) if params[:error_description].to_s.include?('AADSTS65004')
+
+    auth_data     = fetch_graph_auth_data(notification_external_credential)
+    configuration = {
+      user:           extract_preferred_username(auth_data[:id_token]),
+      shared_mailbox: session[:shared_mailbox].presence,
+    }
+
+    # Only switch the notification delivery if the mailbox accepts mails from the notification sender.
+    probe_result = probe_notification_delivery(configuration, auth_data)
+    if probe_result[:result] != 'ok'
+      return redirect_to(notification_error_url('notification_verification_failed', probe_result[:message]), allow_other_host: true)
+    end
+
+    Service::System::SetEmailNotificationConfiguration.execute(
+      adapter:              'microsoft_graph_outbound',
+      new_configuration:    configuration,
+      microsoft_graph_auth: auth_data,
+    )
+
+    redirect_to channels_email_url, allow_other_host: true
+  end
+
+  def notification_external_credential
+    raise Exceptions::UnprocessableContent, __('Invalid OAuth state parameter.') if params[:state] != session[:request_token]
 
     external_credential = ExternalCredential.find_by(name: 'microsoft_graph')
     raise Exceptions::UnprocessableContent, __('No Microsoft Graph app configured!') if !external_credential
     raise Exceptions::UnprocessableContent, __("The required parameter 'code' is missing.") if params[:code].blank?
 
-    auth_data          = fetch_graph_auth_data(external_credential)
-    preferred_username = extract_preferred_username(auth_data[:id_token])
+    external_credential
+  end
 
-    Service::System::SetEmailNotificationConfiguration.execute(
-      adapter:              'microsoft_graph_outbound',
-      new_configuration:    { user: preferred_username, shared_mailbox: shared_mailbox.presence },
-      microsoft_graph_auth: auth_data,
+  def probe_notification_delivery(configuration, auth_data)
+    EmailHelper::Probe.outbound(
+      {
+        adapter: 'microsoft_graph_outbound',
+        options: configuration.merge(password: auth_data[:access_token]).compact_blank,
+      },
+      Setting.get('notification_sender'),
     )
+  end
 
-    redirect_to channels_email_url, allow_other_host: true
+  def notification_error_url(error_code, message = nil)
+    url = "#{Setting.get('http_type')}://#{Setting.get('fqdn')}/#channels/microsoft_graph/error/#{error_code}"
+    return url if message.blank?
+
+    "#{url}/param/#{CGI.escapeURIComponent(message.truncate(300))}"
   end
 
   def fetch_graph_auth_data(external_credential)

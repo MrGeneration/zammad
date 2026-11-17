@@ -117,7 +117,9 @@ send via account
       adapter_options = options[:outbound][:options]
     end
 
-    refresh_xoauth2!
+    # Notifications like password resets are delivered within the web request,
+    #   and a notification channel has no fetch job which keeps its token fresh.
+    refresh_xoauth2!(force: notification)
 
     driver_class    = self.class.driver_class(adapter)
     driver_instance = driver_class.new

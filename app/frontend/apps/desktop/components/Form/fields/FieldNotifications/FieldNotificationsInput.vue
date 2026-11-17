@@ -2,11 +2,10 @@
 
 <script setup lang="ts">
 import { cloneDeep } from 'lodash-es'
-import { computed, toRef } from 'vue'
+import { toRef } from 'vue'
 
 import useValue from '#shared/components/Form/composables/useValue.ts'
 import type { FormFieldContext } from '#shared/components/Form/types/field.ts'
-import { useApplicationStore } from '#shared/stores/application.ts'
 
 import CommonSimpleTable from '#desktop/components/CommonTable/CommonSimpleTable.vue'
 import type { TableSimpleHeader } from '#desktop/components/CommonTable/types.ts'
@@ -25,9 +24,7 @@ const context = toRef(props, 'context')
 
 const { localValue } = useValue(context)
 
-const { config } = useApplicationStore()
-
-const allTableHeaders: TableSimpleHeader[] = [
+const tableHeaders: TableSimpleHeader[] = [
   {
     key: 'name',
     label: __('Name'),
@@ -69,15 +66,6 @@ const allTableHeaders: TableSimpleHeader[] = [
     headerClass: 'w-20',
   },
 ]
-
-const tableHeaders = computed(() => {
-  if (config.system_online_service) {
-    return allTableHeaders.filter(
-      (h) => h.key !== NotificationMatrixColumnKey.AlsoNotifyViaEmail,
-    )
-  }
-  return allTableHeaders
-})
 
 const tableItems = [
   {

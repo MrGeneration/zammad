@@ -41,11 +41,33 @@ returns
         pop3: __('POP3'),
       },
       outbound: {
-        smtp:                     __('SMTP - configure your own outgoing SMTP settings'),
-        sendmail:                 __('Local MTA (Sendmail/Postfix/Exim/…) - use server setup'),
-        microsoft_graph_outbound: __('Microsoft 365 Graph Email'),
+        smtp:     __('SMTP - configure your own outgoing SMTP settings'),
+        sendmail: __('Local MTA (Sendmail/Postfix/Exim/…) - use server setup'),
       },
     }
+  end
+
+=begin
+
+get available outbound driver for the email notification channel
+
+  result = EmailHelper.available_notification_driver
+
+returns
+
+  {
+    smtp: 'SMTP - configure your own outgoing SMTP settings',
+    sendmail: 'Local MTA (Sendmail/Postfix/Exim/...) - use server setup',
+    microsoft_graph_outbound: 'Microsoft 365 Graph Email',
+  }
+
+=end
+
+  def self.available_notification_driver
+    drivers = available_driver[:outbound]
+    return drivers if Setting.get('system_online_service')
+
+    drivers.merge(microsoft_graph_outbound: __('Microsoft 365 Graph Email'))
   end
 
 =begin

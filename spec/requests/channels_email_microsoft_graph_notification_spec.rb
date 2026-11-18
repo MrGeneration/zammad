@@ -41,6 +41,9 @@ RSpec.describe 'Microsoft Graph Email Notification', aggregate_failures: true, a
 
   describe 'GET /api/v1/external_credentials/microsoft_graph/link_account (notification)' do
     before do
+      # The OAuth flow keeps its state in the session, which only exists for a signed-in browser.
+      authenticated_as(admin, via: :browser)
+
       create(:external_credential, name: 'microsoft_graph', credentials: {
                client_id:     'test_client_id',
                client_secret: 'test_client_secret',
@@ -98,6 +101,9 @@ RSpec.describe 'Microsoft Graph Email Notification', aggregate_failures: true, a
     end
 
     before do
+      # The OAuth flow keeps its state in the session, which only exists for a signed-in browser.
+      authenticated_as(admin, via: :browser)
+
       create(:external_credential, name: 'microsoft_graph', credentials: {
                client_id:     'test_client_id',
                client_secret: 'test_client_secret',

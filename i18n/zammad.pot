@@ -9231,7 +9231,7 @@ msgstr ""
 msgid "Invalid GitLab issue link format"
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:101
+#: app/controllers/external_credentials_controller.rb:100
 #: lib/external_credential/exchange.rb:43
 #: lib/external_credential/facebook.rb:42
 #: lib/external_credential/google.rb:39
@@ -11538,7 +11538,7 @@ msgstr ""
 msgid "No Microsoft 365 app configured!"
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:104
+#: app/controllers/external_credentials_controller.rb:103
 #: lib/external_credential/microsoft_graph.rb:9
 msgid "No Microsoft Graph app configured!"
 msgstr ""
@@ -17632,7 +17632,7 @@ msgstr ""
 msgid "The required parameter 'client_secret' is missing."
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:105
+#: app/controllers/external_credentials_controller.rb:104
 #: lib/external_credential/exchange.rb:47
 #: lib/external_credential/google.rb:43
 #: lib/external_credential/microsoft_base.rb:80
@@ -17957,7 +17957,7 @@ msgstr ""
 msgid "The user token could not be generated."
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:144
+#: app/controllers/external_credentials_controller.rb:143
 #: lib/external_credential/exchange.rb:55
 #: lib/external_credential/microsoft_base.rb:88
 msgid "The user's 'preferred_username' could not be extracted from 'id_token'."

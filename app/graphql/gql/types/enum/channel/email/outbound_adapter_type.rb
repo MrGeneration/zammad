@@ -6,6 +6,5 @@ module Gql::Types::Enum
 
     value 'smtp'
     value 'sendmail'
-    value 'microsoft_graph_outbound'
   end
 end

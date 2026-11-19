@@ -1,0 +1,8 @@
+<p>
+  <%- @T('The test email could not be sent with the notification sender address through this mailbox. The email notification settings were not changed.') %><br><br>
+  <%- @T('Please make sure that the notification sender is the address of this mailbox, or an address this mailbox is allowed to send as, and authenticate again.') %>
+  <% if @message: %>
+    <br><br>
+    <strong><%= @message %></strong>
+  <% end %>
+</p>

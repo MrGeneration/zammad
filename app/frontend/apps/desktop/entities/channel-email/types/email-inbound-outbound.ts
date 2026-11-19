@@ -28,14 +28,7 @@ export interface EmailOutboundSmtpFormData extends Required<EmailBaseOutboundDat
   adapter: EnumChannelEmailOutboundAdapter.Smtp
 }
 
-export interface EmailOutboundMicrosoftGraphFormData extends EmailBaseOutboundData {
-  adapter: EnumChannelEmailOutboundAdapter.MicrosoftGraphOutbound
-}
-
-export type EmailOutboundData =
-  | EmailOutboundSendmailFormData
-  | EmailOutboundSmtpFormData
-  | EmailOutboundMicrosoftGraphFormData
+export type EmailOutboundData = EmailOutboundSendmailFormData | EmailOutboundSmtpFormData
 
 export interface EmailInboundMessagesData {
   archive?: boolean

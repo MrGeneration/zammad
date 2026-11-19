@@ -154,6 +154,9 @@ class App.ChannelAccountOverview extends App.ControllerSubContent
       when 'duplicate_email_address'
         @error_code = undefined
         new App.DuplicateEmailAddressInfo(container: @container, type: @channelKey, emailAddress: if @param then decodeURIComponent(@param))
+      when 'notification_verification_failed'
+        @error_code = undefined
+        new App.NotificationVerificationFailedInfo(container: @container, type: @channelKey, message: if @param then decodeURIComponent(@param))
 
   show: (params) =>
     for key, value of params
@@ -356,6 +359,23 @@ class App.DuplicateEmailAddressInfo extends App.ControllerModal
 
   content: ->
     App.view('channel_account/duplicate_email_address')(emailAddress: @emailAddress)
+
+  onSubmit: =>
+    @close()
+
+  onClosed: =>
+    return if not @type
+
+    @navigate "#channels/#{@type}"
+
+class App.NotificationVerificationFailedInfo extends App.ControllerModal
+  buttonClose: true
+  small: true
+  buttonSubmit: __('Close')
+  head: __('Email Notification')
+
+  content: ->
+    App.view('channel_account/notification_verification_failed')(message: @message)
 
   onSubmit: =>
     @close()

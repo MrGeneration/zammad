@@ -869,7 +869,6 @@ export enum EnumChannelEmailInboundAdapter {
 
 /** Outbound email protocols/adapters */
 export enum EnumChannelEmailOutboundAdapter {
-  MicrosoftGraphOutbound = 'microsoft_graph_outbound',
   Sendmail = 'sendmail',
   Smtp = 'smtp'
 }
@@ -1695,7 +1694,7 @@ export type Mutations = {
   channelEmailAdd?: Maybe<ChannelEmailAddPayload>;
   /** Try to guess email channel configuration from user credentials */
   channelEmailGuessConfiguration?: Maybe<ChannelEmailGuessConfigurationPayload>;
-  /** Set confioguration for sending system notification emails */
+  /** Set configuration for sending system notification emails */
   channelEmailSetNotificationConfiguration?: Maybe<ChannelEmailSetNotificationConfigurationPayload>;
   /** Validate an inbound email channel configuration by trying to fetch email */
   channelEmailValidateConfigurationInbound?: Maybe<ChannelEmailValidateConfigurationInboundPayload>;

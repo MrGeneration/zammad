@@ -431,6 +431,12 @@ RSpec.describe ExternalCredential::MicrosoftGraph do
       url = described_class.generate_authorize_url({ client_id: client_id, client_tenant: 'tenant' }, state: state)
       expect(url).to eq("#{authorize_url_with_tenant}&state=#{state}")
     end
+
+    it 'requests permission to send only for the email notification channel' do
+      url = described_class.generate_authorize_url({ client_id: client_id, notification: 'true' }, state: state)
+
+      expect(url).to include('mail.send').and not_include('mail.readwrite')
+    end
   end
 
   describe '.user_info' do
@@ -472,6 +478,21 @@ RSpec.describe ExternalCredential::MicrosoftGraph do
           external_credential.update!(credentials: { client_id: 'id1337', client_secret: 'dummy-new' })
 
           expect(channel.reload.options[:auth][:client_secret]).to eq('dummy-new')
+        end
+      end
+
+      context 'when the email notification channel uses the same secret' do
+        let(:notification_channel) { create(:email_notification_channel, :microsoft_graph_outbound) }
+
+        before do
+          notification_channel.options[:auth][:client_secret] = 'dummy'
+          notification_channel.save!
+        end
+
+        it 'updates the notification channel' do
+          external_credential.update!(credentials: { client_id: 'id1337', client_secret: 'dummy-new' })
+
+          expect(notification_channel.reload.options[:auth][:client_secret]).to eq('dummy-new')
         end
       end
     end

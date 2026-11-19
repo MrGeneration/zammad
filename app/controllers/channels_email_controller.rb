@@ -48,7 +48,8 @@ class ChannelsEmailController < ApplicationController
       email_address_ids:          email_address_ids,
       not_used_email_address_ids: not_used_email_address_ids,
       channel_driver:             {
-        email: EmailHelper.available_driver,
+        email:              EmailHelper.available_driver,
+        email_notification: EmailHelper.available_notification_driver,
       },
       config:                     {
         notification_sender: Setting.get('notification_sender'),

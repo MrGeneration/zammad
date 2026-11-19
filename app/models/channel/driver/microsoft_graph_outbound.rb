@@ -18,7 +18,7 @@ class Channel::Driver::MicrosoftGraphOutbound < Channel::Driver::BaseEmailOutbou
     'Microsoft Graph API' # rubocop:disable Zammad/DetectTranslatableString
   end
 
-  # Microsoft Graph API shall not be used for sending notifications
+  # Microsoft Graph API errors of notifications are never silenced, so they show up on the notification channel.
   def deliver_mail_notification_silence?(_e, _mail)
     false
   end

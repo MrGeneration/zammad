@@ -959,7 +959,7 @@ msgstr ""
 
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:595
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:197
-#: app/controllers/channels_email_controller.rb:249
+#: app/controllers/channels_email_controller.rb:250
 msgid "Account already exists!"
 msgstr ""
 
@@ -1431,7 +1431,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:321
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:324
 msgid "Admin Consent"
 msgstr ""
 
@@ -1617,7 +1617,7 @@ msgid "All priorities will be considered for prioritizing tickets."
 msgstr ""
 
 #: app/assets/javascripts/app/controllers/_manage/ticket_duplicate_detection.coffee:38
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:59
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:56
 msgid "All tickets"
 msgstr ""
 
@@ -1682,7 +1682,7 @@ msgid "Allow websites (separated by ;)"
 msgstr ""
 
 #: app/assets/javascripts/app/views/generic/notification_matrix.jst.eco:9
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:67
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:64
 msgid "Also notify via email"
 msgstr ""
 
@@ -1981,7 +1981,7 @@ msgid "Are you sure you want to unset \"%s\" as default?"
 msgstr ""
 
 #: app/assets/javascripts/app/controllers/_application_controller/_modal_generic_confirm_delete.coffee:6
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:188
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:191
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:142
 #: app/assets/javascripts/app/controllers/_channel/facebook.coffee:99
 #: app/assets/javascripts/app/controllers/_channel/telegram.coffee:67
@@ -2282,9 +2282,8 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:181
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:165
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:172
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:43
 msgid "Authenticate"
 msgstr ""
 
@@ -3533,7 +3532,7 @@ msgstr ""
 
 #: app/assets/javascripts/app/controllers/_application_controller/_modal_generic_description.coffee:4
 #: app/assets/javascripts/app/controllers/_application_controller/_modal_generic_error_modal.coffee:4
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:320
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:323
 #: app/assets/javascripts/app/controllers/_plugin/maintenance.coffee:32
 #: app/assets/javascripts/app/controllers/_settings/area_proxy.coffee:55
 #: app/assets/javascripts/app/controllers/translation.coffee:184
@@ -3946,8 +3945,7 @@ msgstr ""
 msgid "Context menu"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:157
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:45
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:141
 #: app/assets/javascripts/app/views/channel/email_account_wizard.jst.eco:99
 #: app/assets/javascripts/app/views/channel/email_notification_wizard.jst.eco:59
 #: app/assets/javascripts/app/views/getting_started/agent.jst.eco:8
@@ -6236,7 +6234,7 @@ msgstr ""
 msgid "Duplicate Detection"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:355
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:358
 msgid "Duplicate Email Address"
 msgstr ""
 
@@ -6467,7 +6465,7 @@ msgstr ""
 msgid "Email Accounts"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:285
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:288
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:198
 #: app/assets/javascripts/app/views/channel/email_account_overview.jst.eco:126
 #: app/assets/javascripts/app/views/channel/email_notification_overview.jst.eco:50
@@ -6480,6 +6478,7 @@ msgstr ""
 msgid "Email Inbound"
 msgstr ""
 
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:375
 #: app/assets/javascripts/app/views/channel/email_notification_overview.jst.eco:2
 #: app/assets/javascripts/app/views/channel/email_notification_wizard.jst.eco:8
 #: app/assets/javascripts/app/views/getting_started/email_notification.jst.eco:6
@@ -7358,7 +7357,7 @@ msgstr ""
 msgid "Failed to load content."
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:267
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:270
 msgid "Failed to roll back the migration of the channel!"
 msgstr ""
 
@@ -8538,7 +8537,7 @@ msgstr ""
 msgid "Honeypot spam protection"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:144
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:128
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:401
 #: app/assets/javascripts/app/controllers/_integration/ldap.coffee:331
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:80
@@ -9232,7 +9231,7 @@ msgstr ""
 msgid "Invalid GitLab issue link format"
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:72
+#: app/controllers/external_credentials_controller.rb:100
 #: lib/external_credential/exchange.rb:43
 #: lib/external_credential/facebook.rb:42
 #: lib/external_credential/google.rb:39
@@ -10173,9 +10172,8 @@ msgstr ""
 msgid "Macros make it easy to automate common, multi-step tasks within Zammad.\n\nYou can use macros in Zammad to automate recurring sequences, saving time (and nerves). This allows a combined sequence of actions on the ticket to be executed with just one click."
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:169
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:153
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:177
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:34
 msgid "Mailbox type"
 msgstr ""
 
@@ -10785,7 +10783,7 @@ msgstr ""
 
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:4
 #: db/seeds/permissions.rb:161
-#: lib/email_helper.rb:27
+#: lib/email_helper.rb:37
 msgid "Microsoft 365 Graph Email"
 msgstr ""
 
@@ -11042,7 +11040,7 @@ msgstr ""
 msgid "My handling time: %s minutes"
 msgstr ""
 
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:38
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:35
 #: app/frontend/apps/desktop/pages/personal-setting/views/PersonalSettingCalendar.vue:61
 msgid "My tickets"
 msgstr ""
@@ -11120,7 +11118,7 @@ msgstr ""
 #: app/assets/javascripts/app/views/widget/organization.jst.eco:9
 #: app/assets/javascripts/app/views/widget/user.jst.eco:5
 #: app/controllers/time_accountings_controller.rb:89
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:33
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:30
 #: app/frontend/apps/desktop/components/TwoFactor/TwoFactorConfiguration/TwoFactorConfigurationSecurityKeys.vue:111
 #: app/frontend/apps/desktop/pages/personal-setting/components/PersonalSettingNewAccessTokenFlyout.vue:28
 #: app/frontend/apps/desktop/pages/personal-setting/views/PersonalSettingDevices.vue:95
@@ -11412,7 +11410,7 @@ msgstr ""
 msgid "New text module"
 msgstr ""
 
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:86
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:74
 #: app/frontend/apps/desktop/components/layout/LayoutSidebar/LeftSidebar/MenuContainer/AddMenu/plugins/ticket-create.ts:12
 #: app/frontend/apps/desktop/entities/ticket/composables/useTicketCreateTitle.ts:21
 #: app/frontend/apps/desktop/pages/ticket/components/TicketCreate/TicketCreateContent.vue:89
@@ -11540,7 +11538,7 @@ msgstr ""
 msgid "No Microsoft 365 app configured!"
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:75
+#: app/controllers/external_credentials_controller.rb:103
 #: lib/external_credential/microsoft_graph.rb:9
 msgid "No Microsoft Graph app configured!"
 msgstr ""
@@ -11884,7 +11882,7 @@ msgstr ""
 msgid "Not applicable to: merging, emails, form, Facebook, Telegram, SMS"
 msgstr ""
 
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:45
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:42
 #: app/frontend/apps/desktop/pages/personal-setting/views/PersonalSettingCalendar.vue:73
 msgid "Not assigned"
 msgstr ""
@@ -12051,7 +12049,7 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:142
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:130
 msgid "Notifications matrix"
 msgstr ""
 
@@ -12821,7 +12819,7 @@ msgstr ""
 msgid "Parent group"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:146
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:130
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:366
 #: app/assets/javascripts/app/controllers/_manage/security.coffee:10
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:82
@@ -13138,7 +13136,7 @@ msgstr ""
 msgid "Please enable execution_time feature to use it (currently only allowed for triggers and schedulers)"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:213
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:197
 msgid "Please enter a shared mailbox address."
 msgstr ""
 
@@ -13182,6 +13180,10 @@ msgstr ""
 
 #: app/services/service/system/import/apply_otrs_configuration.rb:82
 msgid "Please install the OTRS migrator plugin and provide a valid URL."
+msgstr ""
+
+#: app/assets/javascripts/app/views/channel_account/notification_verification_failed.jst.eco:3
+msgid "Please make sure that the notification sender is the address of this mailbox, or an address this mailbox is allowed to send as, and authenticate again."
 msgstr ""
 
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:35
@@ -13268,7 +13270,7 @@ msgstr ""
 msgid "Please wait…"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:147
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:131
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:406
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:85
 #: app/assets/javascripts/app/controllers/getting_started/email_notification.coffee:72
@@ -14365,7 +14367,7 @@ msgstr ""
 msgid "Rollback migration"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:263
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:266
 msgid "Rollback of channel migration succeeded!"
 msgstr ""
 
@@ -14496,7 +14498,7 @@ msgstr ""
 msgid "SSL Certificates"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:148
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:132
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:405
 #: app/assets/javascripts/app/controllers/_ui_element/object_manager_attribute.coffee:707
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:84
@@ -15221,7 +15223,7 @@ msgstr ""
 msgid "Send Email"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:126
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:110
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:382
 #: app/assets/javascripts/app/controllers/getting_started/channel_email.coffee:65
 #: app/assets/javascripts/app/controllers/getting_started/email_notification.coffee:50
@@ -15591,9 +15593,8 @@ msgstr ""
 msgid "Shared drafts are not activated for the selected group"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:169
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:153
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:177
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:34
 msgid "Shared mailbox"
 msgstr ""
 
@@ -16362,7 +16363,7 @@ msgstr ""
 msgid "Subscribed Tickets"
 msgstr ""
 
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:52
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:49
 msgid "Subscribed tickets"
 msgstr ""
 
@@ -17631,7 +17632,7 @@ msgstr ""
 msgid "The required parameter 'client_secret' is missing."
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:76
+#: app/controllers/external_credentials_controller.rb:104
 #: lib/external_credential/exchange.rb:47
 #: lib/external_credential/google.rb:43
 #: lib/external_credential/microsoft_base.rb:80
@@ -17860,6 +17861,10 @@ msgstr ""
 msgid "The target ticket number could not be found."
 msgstr ""
 
+#: app/assets/javascripts/app/views/channel_account/notification_verification_failed.jst.eco:2
+msgid "The test email could not be sent with the notification sender address through this mailbox. The email notification settings were not changed."
+msgstr ""
+
 #: app/assets/javascripts/app/views/generic/object_import/import_try.jst.eco:6
 msgid "The test run was successful."
 msgstr ""
@@ -17952,7 +17957,7 @@ msgstr ""
 msgid "The user token could not be generated."
 msgstr ""
 
-#: app/controllers/external_credentials_controller.rb:107
+#: app/controllers/external_credentials_controller.rb:143
 #: lib/external_credential/exchange.rb:55
 #: lib/external_credential/microsoft_base.rb:88
 msgid "The user's 'preferred_username' could not be extracted from 'id_token'."
@@ -18833,7 +18838,7 @@ msgstr ""
 
 #: app/assets/javascripts/app/controllers/_profile/notification.coffee:71
 #: app/assets/javascripts/app/controllers/_ui_element/notification_matrix.coffee:13
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:101
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:89
 msgid "Ticket escalation"
 msgstr ""
 
@@ -18890,7 +18895,7 @@ msgstr ""
 
 #: app/assets/javascripts/app/controllers/_profile/notification.coffee:69
 #: app/assets/javascripts/app/controllers/_ui_element/notification_matrix.coffee:11
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:96
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:84
 msgid "Ticket reminder reached"
 msgstr ""
 
@@ -18939,7 +18944,7 @@ msgstr ""
 #: app/assets/javascripts/app/controllers/_profile/notification.coffee:67
 #: app/assets/javascripts/app/controllers/_ui_element/notification_matrix.coffee:9
 #: app/assets/javascripts/app/controllers/_ui_element/postmaster_set.coffee:11
-#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:91
+#: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:79
 msgid "Ticket update"
 msgstr ""
 
@@ -20140,7 +20145,7 @@ msgstr ""
 msgid "Used when viewing a Ticket"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:145
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:129
 #: app/assets/javascripts/app/controllers/_channel/email.coffee:402
 #: app/assets/javascripts/app/controllers/_manage/ticket_duplicate_detection.coffee:37
 #: app/assets/javascripts/app/controllers/_ui_element/_application_action.coffee:173
@@ -20195,7 +20200,7 @@ msgstr ""
 msgid "User Mailbox"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:338
+#: app/assets/javascripts/app/controllers/_channel/_channel_account_overview.coffee:341
 msgid "User Mismatch"
 msgstr ""
 
@@ -20285,9 +20290,8 @@ msgstr ""
 msgid "User is out of office"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:169
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:153
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:177
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:34
 msgid "User mailbox"
 msgstr ""
 
@@ -22987,9 +22991,8 @@ msgstr ""
 msgid "updated"
 msgstr ""
 
-#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:170
+#: app/assets/javascripts/app/controllers/_channel/_email_notification.coffee:154
 #: app/assets/javascripts/app/controllers/_channel/microsoft_graph.coffee:178
-#: app/assets/javascripts/app/controllers/_channel/microsoft_graph_notification.coffee:35
 msgid "user@your-organization.tld"
 msgstr ""
 

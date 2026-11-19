@@ -1,7 +1,6 @@
-# Shared Email Notification tab controller.
-# Can be included as a tab in any channel page (Email, Microsoft Graph, etc.)
-# Loads the notification channel data from the email index endpoint and renders
-# the notification section with an Edit button that opens the notification wizard.
+# Shared email notification section of the email channel pages (Email, Google, Microsoft 365, Microsoft 365 Graph).
+# Renders the active notification channel with an edit button that opens the notification wizard.
+# The data is loaded from the email index endpoint, unless it was handed over already.
 
 class App.ChannelEmailNotification extends App.Controller
   events:
@@ -46,29 +45,14 @@ class App.ChannelEmailNotification extends App.Controller
     e.preventDefault()
     id      = $(e.target).closest('.action').data('id')
     channel = App.Channel.find(id)
-    # ChannelEmailNotificationWizard is file-local in email.coffee, so we
-    # trigger the edit via a synthetic click on the email channel page.
-    # Instead, we re-implement the wizard opening inline.
-    @openNotificationWizard(channel)
-
-  openNotificationWizard: (channel) =>
-    # Load the notification wizard dynamically. Since ChannelEmailNotificationWizard
-    # is not globally accessible, we navigate to the email channel page to trigger
-    # the edit there. This is a pragmatic workaround.
-    # However, we can also replicate the wizard-opening behavior:
-    new App.ChannelEmailNotificationWizardProxy(
+    new App.ChannelEmailNotificationWizard(
       container:     @el.closest('.content')
       channel:       channel
       callback:      @load
       channelDriver: @channelDriver
     )
 
-
-# Proxy class that opens the notification wizard by temporarily navigating to
-# the email channel, or by creating the wizard modal inline.
-# Since the actual ChannelEmailNotificationWizard is file-local, we build the
-# wizard modal here using the same template and behavior.
-class App.ChannelEmailNotificationWizardProxy extends App.ControllerWizardModal
+class App.ChannelEmailNotificationWizard extends App.ControllerWizardModal
   elements:
     '.modal-body': 'body'
   events:
@@ -123,7 +107,7 @@ class App.ChannelEmailNotificationWizardProxy extends App.ControllerWizardModal
     @showSlide('js-outbound')
 
     configureAttributesOutbound = [
-      { name: 'adapter', display: __('Send Mails via'), tag: 'select', multiple: false, null: false, options: @channelDriver.email.outbound, translate: true },
+      { name: 'adapter', display: __('Send Mails via'), tag: 'select', multiple: false, null: false, options: @channelDriver.email_notification, translate: true },
     ]
     new App.ControllerForm(
       el:    @$('.base-outbound-type')

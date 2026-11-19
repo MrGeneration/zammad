@@ -159,6 +159,30 @@ RSpec.describe Channel, type: :model do
     end
   end
 
+  describe '#deliver' do
+    context 'when an XOAUTH2 channel delivers within the application server' do
+      let(:channel) { create(:email_notification_channel, :microsoft_graph_outbound) }
+      let(:driver)  { instance_double(Channel::Driver::MicrosoftGraphOutbound, deliver: true) }
+
+      before do
+        allow(ExternalCredential).to receive(:refresh_token).and_return(channel.options[:auth])
+        allow(Channel::Driver::MicrosoftGraphOutbound).to receive(:new).and_return(driver)
+      end
+
+      it 'refreshes the access token for a notification' do
+        ApplicationHandleInfo.use('application_server') { channel.deliver({}, true) }
+
+        expect(ExternalCredential).to have_received(:refresh_token)
+      end
+
+      it 'does not refresh the access token for other mails' do
+        ApplicationHandleInfo.use('application_server') { channel.deliver({}) }
+
+        expect(ExternalCredential).not_to have_received(:refresh_token)
+      end
+    end
+  end
+
   describe 'validations' do
     it 'validates email account uniqueness' do
       expect_any_instance_of(Validations::ChannelEmailAccountUniquenessValidator)
